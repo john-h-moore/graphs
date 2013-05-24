@@ -31,7 +31,7 @@ class Graph:
 		if directed == False:
 			node2.add_neighbor(e2)
 		self.edges[e.label] = e
-	def populate_graph(self, numnodes=10):
+	def populate_graph(self, numnodes=20):
 		for i in range(numnodes):
 			l = random.choice(string.ascii_lowercase)
 			n = Node(l)
@@ -40,7 +40,7 @@ class Graph:
 		for i in range(len(self.nodes)):
 			if random.randint(1, 10) %3 == 0:
 				self.edge(self.nodes[random.choice(self.nodes.keys())], self.nodes[random.choice(self.nodes.keys())])
-	def generate_rand_graph(self, numnodes=10, linkiters=2):
+	def generate_rand_graph(self, numnodes=20, linkiters=4):
 		self.populate_graph(numnodes)
 		for i in range(linkiters):
 			self.link_graph()

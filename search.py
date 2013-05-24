@@ -45,4 +45,27 @@ def bfs_dest(G, start, end, marked):
 				if neighbor == end:
 					return marked, explored
 				queue.append(neighbor)
-	return None 
+	return None
+
+def return_path(explored, start, end, path):
+	for edge in explored:
+		if end in edge[1]:
+			path.append(edge)
+			n = edge[0]
+			if n == start:
+				return path
+			explored.pop(explored.index(edge))
+			return_path(explored, start, n, path)
+	return path
+
+def find_path(explored, start, end):
+	path = []
+	return_path(explored, start, end, path)
+	path.reverse()
+	return path
+
+def format_path(path):
+	p = ''
+	for v in path:
+		p += v[0] + ' --> '
+	return p + path[-1][1]
