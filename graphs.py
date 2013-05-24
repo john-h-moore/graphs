@@ -5,8 +5,11 @@ class Node:
 	def __init__(self, label):
 		self.label = label
 		self.neighbors = {}
+		self.data = None
 	def add_neighbor(self, edge):
 		self.neighbors[edge.end.label] = (edge, edge.end)
+	def node_data(self, data):
+		self.data = data
 
 class Graph:
 	def __init__(self, name='G'):
