@@ -50,16 +50,6 @@ def bfs_dest(G, start, end, marked):
 	return None
 
 def return_path(explored, start, end, path):
-	'''
-	for edge in explored:
-		if end in edge[1]:
-			path.append(edge)
-			n = edge[0]
-			if n == start:
-				return path
-			explored.pop(explored.index(edge))
-			return_path(explored, start, n, path)
-	'''
 	for edge in explored:
 		if end in edge.label[1]:
 			path.append(edge)
