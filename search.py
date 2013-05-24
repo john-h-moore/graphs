@@ -13,8 +13,8 @@ def bfs(G, v, marked):
 	queue = [v]
 	marked[v] = True
 	while queue:
-		w = queue.pop()
-		for neighbor in G.nodes[w].neighbors:
+		curr = queue.pop()
+		for neighbor in G.nodes[curr].neighbors:
 			if neighbor not in marked:
 				marked[neighbor] = True
 				queue.append(neighbor)
@@ -31,3 +31,18 @@ def dfs_dest(G, start, end, marked, explored):
 					return marked, explored
 				dfs_dest(G, neighbor, end, marked, explored)
 	return None
+
+def bfs_dest(G, start, end, marked):
+	queue = [start]
+	marked[start] = True
+	explored = []
+	while queue:
+		curr = queue.pop()
+		for neighbor in G.nodes[curr].neighbors:
+			if neighbor not in marked:
+				marked[neighbor] = True
+				explored.append(G.nodes[curr].neighbors[neighbor][0])
+				if neighbor == end:
+					return marked, explored
+				queue.append(neighbor)
+	return marked, explored
