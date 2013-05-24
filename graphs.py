@@ -45,7 +45,7 @@ class Graph:
 		for i in range(linkiters):
 			self.link_graph()
 	def rand_node(self):
-		return random.choice(self.nodes[random.choice(self.nodes.keys())])
+		return random.choice(self.nodes.keys())
 
 class Edge:
 	def __init__(self, start, end, directed=False, weight=None):

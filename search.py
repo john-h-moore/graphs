@@ -12,13 +12,15 @@ def dfs(G, v, marked, explored):
 def bfs(G, v, marked):
 	queue = [v]
 	marked[v] = True
+	explored = []
 	while queue:
 		curr = queue.pop()
 		for neighbor in G.nodes[curr].neighbors:
 			if neighbor not in marked:
 				marked[neighbor] = True
+				explored.append(G.nodes[curr].neighbors[neighbor][0])
 				queue.append(neighbor)
-	return marked
+	return marked, explored
 
 def dfs_dest(G, start, end, marked, explored):
 	marked[start] = True
@@ -48,10 +50,20 @@ def bfs_dest(G, start, end, marked):
 	return None
 
 def return_path(explored, start, end, path):
+	'''
 	for edge in explored:
 		if end in edge[1]:
 			path.append(edge)
 			n = edge[0]
+			if n == start:
+				return path
+			explored.pop(explored.index(edge))
+			return_path(explored, start, n, path)
+	'''
+	for edge in explored:
+		if end in edge.label[1]:
+			path.append(edge)
+			n = edge.label[0]
 			if n == start:
 				return path
 			explored.pop(explored.index(edge))
@@ -66,6 +78,6 @@ def find_path(explored, start, end):
 
 def format_path(path):
 	p = ''
-	for v in path:
-		p += v[0] + ' --> '
-	return p + path[-1][1]
+	for edge in path:
+		p += edge.label[0] + ' --> '
+	return p + path[-1].label[1]
