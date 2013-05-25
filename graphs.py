@@ -33,7 +33,7 @@ class Graph:
 		self.edges[e.label] = e
 	def populate_graph(self, numnodes=20):
 		for i in range(numnodes):
-			l = random.choice(string.ascii_lowercase)
+			l = random.choice(string.letters)
 			n = Node(l)
 			self.add_node(n)
 	def link_graph(self):
