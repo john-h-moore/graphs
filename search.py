@@ -71,3 +71,13 @@ def format_path(path):
 	for edge in path:
 		p += edge.label[0] + ' --> '
 	return p + path[-1].label[1]
+
+def components(G):
+	reached = {}
+	components = 0
+	while len(reached) != len(G.nodes):
+		start = G.rand_node()
+		if start not in reached:
+			bfs(G, start, reached)
+			components += 1
+	return components
