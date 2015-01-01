@@ -11,12 +11,12 @@ def dest_test(test_iters = 3):
 	bfspl = 0
 	dfs_time = 0.0
 	bfs_time = 0.0
- 	for i in range(test_iters):
-	 	G = Graph()
-	 	G.generate_rand_graph(40)
-	 	dfs_marked = {}
-	 	bfs_marked = {}
-	 	explored = []
+	for i in range(test_iters):
+		G = Graph()
+		G.generate_rand_graph(40)
+		dfs_marked = {}
+		bfs_marked = {}
+		explored = []
 		start = G.rand_node()
 		end = G.rand_node()
 		dfs_t0 = time.time()
@@ -77,12 +77,12 @@ def search_test(test_iters = 3):
 	bfse = 0
 	dfs_time = 0.0
 	bfs_time = 0.0
- 	for i in range(test_iters):
-	 	G = Graph()
-	 	G.generate_rand_graph(40)
-	 	dfs_marked = {}
-	 	bfs_marked = {}
-	 	explored = []
+	for i in range(test_iters):
+		G = Graph()
+		G.generate_rand_graph(40)
+		dfs_marked = {}
+		bfs_marked = {}
+		explored = []
 		start = G.rand_node()
 		dfs_t0 = time.time()
 		dfs(G, start, dfs_marked, explored)
@@ -121,12 +121,12 @@ def big_search_test(test_iters = 100000):
 	bfse = 0
 	dfs_time = 0.0
 	bfs_time = 0.0
- 	for i in range(test_iters):
-	 	G = Graph()
-	 	G.generate_rand_graph(40)
-	 	dfs_marked = {}
-	 	bfs_marked = {}
-	 	explored = []
+	for i in range(test_iters):
+		G = Graph()
+		G.generate_rand_graph(40)
+		dfs_marked = {}
+		bfs_marked = {}
+		explored = []
 		start = G.rand_node()
 		dfs_t0 = time.time()
 		dfs(G, start, dfs_marked, explored)
@@ -163,12 +163,12 @@ def big_dest_test(test_iters = 100000):
 	bfspl = 0
 	dfs_time = 0.0
 	bfs_time = 0.0
- 	for i in range(test_iters):
-	 	G = Graph()
-	 	G.generate_rand_graph(40)
-	 	dfs_marked = {}
-	 	bfs_marked = {}
-	 	explored = []
+	for i in range(test_iters):
+		G = Graph()
+		G.generate_rand_graph(40)
+		dfs_marked = {}
+		bfs_marked = {}
+		explored = []
 		start = G.rand_node()
 		end = G.rand_node()
 		dfs_t0 = time.time()
